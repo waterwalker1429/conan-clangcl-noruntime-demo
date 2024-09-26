@@ -1,0 +1,132 @@
+conan create -pr:h clang-cl -pr:b build .
+
+======== Exporting recipe to the cache ========
+mypkg/0.1: Exporting package recipe: /code/conan-autotools-demo/conanfile.py
+mypkg/0.1: Copied 1 '.py' file: conanfile.py
+mypkg/0.1: Copied 1 '.txt' file: CMakeLists.txt
+mypkg/0.1: Copied 1 '.cpp' file: mypkg.cpp
+mypkg/0.1: Copied 1 '.h' file: mypkg.h
+mypkg/0.1: Exported to cache folder: /home/builder/.conan2/p/mypkga237a5f70f50d/e
+mypkg/0.1: Exported: mypkg/0.1#69dcbff05d037a4e961ce5a029a6ed92 (2024-09-26 07:03:35 UTC)
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=x86_64
+build_type=Debug
+compiler=clang
+compiler.version=14
+os=Windows
+[buildenv]
+CC=clang-cl
+CXX=clang-cl
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=clang
+compiler.cppstd=gnu14
+compiler.libcxx=libstdc++11
+compiler.version=14
+os=Linux
+
+
+======== Computing dependency graph ========
+Graph root
+    cli
+Requirements
+    mypkg/0.1#69dcbff05d037a4e961ce5a029a6ed92 - Cache
+
+======== Computing necessary packages ========
+mypkg/0.1: Forced build from source
+Requirements
+    mypkg/0.1#69dcbff05d037a4e961ce5a029a6ed92:c86978c6f2e57fa8155aa6d22158bfea87ef3761 - Build
+
+======== Installing packages ========
+
+-------- Installing package mypkg/0.1 (1 of 1) --------
+mypkg/0.1: Building from source
+mypkg/0.1: Package mypkg/0.1:c86978c6f2e57fa8155aa6d22158bfea87ef3761
+mypkg/0.1: Copying sources to build folder
+mypkg/0.1: Building your package in /home/builder/.conan2/p/b/mypkgf32b301bc20f0/b
+mypkg/0.1: Calling generate()
+mypkg/0.1: Generators folder: /home/builder/.conan2/p/b/mypkgf32b301bc20f0/b/build/Debug/generators
+mypkg/0.1: CMakeToolchain generated: conan_toolchain.cmake
+mypkg/0.1: CMakeToolchain generated: /home/builder/.conan2/p/b/mypkgf32b301bc20f0/b/build/Debug/generators/CMakePresets.json
+mypkg/0.1: CMakeToolchain generated: /home/builder/.conan2/p/b/mypkgf32b301bc20f0/b/CMakeUserPresets.json
+mypkg/0.1: Generating aggregated env files
+mypkg/0.1: Generated aggregated env files: ['conanbuild.sh', 'conanrun.bat']
+mypkg/0.1: Calling build()
+mypkg/0.1: Running CMake.configure()
+mypkg/0.1: RUN: cmake -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE="generators/conan_toolchain.cmake" -DCMAKE_INSTALL_PREFIX="/home/builder/.conan2/p/b/mypkgf32b301bc20f0/p" -DCMAKE_POLICY_DEFAULT_CMP0091="NEW" -DCMAKE_BUILD_TYPE="Debug" "/home/builder/.conan2/p/b/mypkgf32b301bc20f0/b"
+-- Using Conan toolchain: /home/builder/.conan2/p/b/mypkgf32b301bc20f0/b/build/Debug/generators/conan_toolchain.cmake
+-- Conan toolchain: Defining architecture flag: -m64
+-- Conan toolchain: Setting BUILD_SHARED_LIBS = OFF
+-- The CXX compiler identification is Clang 14.0.6 with MSVC-like command-line
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - failed
+-- Check for working CXX compiler: /usr/bin/clang-cl
+-- Check for working CXX compiler: /usr/bin/clang-cl - broken
+CMake Error at /opt/venv-conan2/lib/python3.11/site-packages/cmake/data/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:73 (message):
+  The C++ compiler
+
+    "/usr/bin/clang-cl"
+
+  is not able to compile a simple test program.
+
+  It fails with the following output:
+
+    Change Dir: '/home/builder/.conan2/p/b/mypkgf32b301bc20f0/b/build/Debug/CMakeFiles/CMakeScratch/TryCompile-8EA7Fd'
+    
+    Run Build Command(s): /opt/venv-conan2/lib/python3.11/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_7889b/fast
+    /usr/bin/gmake  -f CMakeFiles/cmTC_7889b.dir/build.make CMakeFiles/cmTC_7889b.dir/build
+    gmake[1]: Entering directory '/home/builder/.conan2/p/b/mypkgf32b301bc20f0/b/build/Debug/CMakeFiles/CMakeScratch/TryCompile-8EA7Fd'
+    Building CXX object CMakeFiles/cmTC_7889b.dir/testCXXCompiler.cxx.obj
+    /opt/venv-conan2/lib/python3.11/site-packages/cmake/data/bin/cmake -E cmake_cl_compile_depends --dep-file=CMakeFiles/cmTC_7889b.dir/testCXXCompiler.cxx.obj.d --working-dir=/home/builder/.conan2/p/b/mypkgf32b301bc20f0/b/build/Debug/CMakeFiles/CMakeScratch/TryCompile-8EA7Fd --filter-prefix="Note: including file: " -- /usr/bin/clang-cl  /nologo -TP   -m64 /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles/cmTC_7889b.dir/testCXXCompiler.cxx.obj /FdCMakeFiles/cmTC_7889b.dir/ -c -- /home/builder/.conan2/p/b/mypkgf32b301bc20f0/b/build/Debug/CMakeFiles/CMakeScratch/TryCompile-8EA7Fd/testCXXCompiler.cxx
+    Linking CXX executable cmTC_7889b.exe
+    /opt/venv-conan2/lib/python3.11/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7889b.dir/link.txt --verbose=1
+    /opt/venv-conan2/lib/python3.11/site-packages/cmake/data/bin/cmake -E vs_link_exe --intdir=CMakeFiles/cmTC_7889b.dir --rc=/usr/bin/llvm-rc --mt=/usr/bin/mt --manifests -- /usr/bin/lld-link /nologo @CMakeFiles/cmTC_7889b.dir/objects1.rsp  /out:cmTC_7889b.exe /implib:cmTC_7889b.lib /pdb:/home/builder/.conan2/p/b/mypkgf32b301bc20f0/b/build/Debug/CMakeFiles/CMakeScratch/TryCompile-8EA7Fd/cmTC_7889b.pdb /version:0.0 -m64 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+    Visual Studio Incremental Link with embedded manifests
+    Create CMakeFiles/cmTC_7889b.dir/manifest.rc
+    Create empty: CMakeFiles/cmTC_7889b.dir/embed.manifest
+    RC Pass 1:
+    /usr/bin/llvm-rc /fo CMakeFiles/cmTC_7889b.dir/manifest.res CMakeFiles/cmTC_7889b.dir/manifest.rc
+    LINK Pass 1:
+    /usr/bin/lld-link /nologo @CMakeFiles/cmTC_7889b.dir/objects1.rsp /out:cmTC_7889b.exe /implib:cmTC_7889b.lib /pdb:/home/builder/.conan2/p/b/mypkgf32b301bc20f0/b/build/Debug/CMakeFiles/CMakeScratch/TryCompile-8EA7Fd/cmTC_7889b.pdb /version:0.0 -m64 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles/cmTC_7889b.dir/intermediate.manifest CMakeFiles/cmTC_7889b.dir/manifest.res
+    LINK Pass 1: command "/usr/bin/lld-link /nologo @CMakeFiles/cmTC_7889b.dir/objects1.rsp /out:cmTC_7889b.exe /implib:cmTC_7889b.lib /pdb:/home/builder/.conan2/p/b/mypkgf32b301bc20f0/b/build/Debug/CMakeFiles/CMakeScratch/TryCompile-8EA7Fd/cmTC_7889b.pdb /version:0.0 -m64 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles/cmTC_7889b.dir/intermediate.manifest CMakeFiles/cmTC_7889b.dir/manifest.res" failed (exit code 1) with the following output:
+    lld-link: warning: ignoring unknown argument '-m64'
+    lld-link: error: could not open 'kernel32.lib': No such file or directory
+    lld-link: error: could not open 'user32.lib': No such file or directory
+    lld-link: error: could not open 'gdi32.lib': No such file or directory
+    lld-link: error: could not open 'winspool.lib': No such file or directory
+    lld-link: error: could not open 'shell32.lib': No such file or directory
+    lld-link: error: could not open 'ole32.lib': No such file or directory
+    lld-link: error: could not open 'oleaut32.lib': No such file or directory
+    lld-link: error: could not open 'uuid.lib': No such file or directory
+    lld-link: error: could not open 'comdlg32.lib': No such file or directory
+    lld-link: error: could not open 'advapi32.lib': No such file or directory
+    lld-link: error: could not open 'msvcrtd.lib': No such file or directory
+    lld-link: error: could not open 'oldnames.lib': No such file or directory
+    gmake[1]: *** [CMakeFiles/cmTC_7889b.dir/build.make:101: cmTC_7889b.exe] Error 255
+    gmake[1]: Leaving directory '/home/builder/.conan2/p/b/mypkgf32b301bc20f0/b/build/Debug/CMakeFiles/CMakeScratch/TryCompile-8EA7Fd'
+    gmake: *** [Makefile:127: cmTC_7889b/fast] Error 2
+    
+    
+
+  
+
+  CMake will not be able to correctly generate this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+-- Configuring incomplete, errors occurred!
+
+mypkg/0.1: ERROR: 
+Package 'c86978c6f2e57fa8155aa6d22158bfea87ef3761' build failed
+mypkg/0.1: WARN: Build folder /home/builder/.conan2/p/b/mypkgf32b301bc20f0/b/build/Debug
+ERROR: mypkg/0.1: Error in build() method, line 44
+	cmake.configure()
+	ConanException: Error 1 while executing
+

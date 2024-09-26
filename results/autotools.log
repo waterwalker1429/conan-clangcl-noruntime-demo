@@ -1,0 +1,69 @@
+conan new autotools_lib -d name=mypkg -d version=0.1
+File saved: Makefile.am
+File saved: conanfile.py
+File saved: configure.ac
+File saved: src/Makefile.am
+File saved: src/mypkg.cpp
+File saved: src/mypkg.h
+File saved: test_package/Makefile.am
+File saved: test_package/conanfile.py
+File saved: test_package/configure.ac
+File saved: test_package/main.cpp
+(venv-conan2) builder@debian:/code/conan-clangcl-noruntime-demo/autotools$ cd ..
+(venv-conan2) builder@debian:/code/conan-clangcl-noruntime-demo$ conan create -pr:h clang-cl -pr:b build autotools/
+
+======== Exporting recipe to the cache ========
+mypkg/0.1: Exporting package recipe: /code/conan-clangcl-noruntime-demo/autotools/conanfile.py
+mypkg/0.1: Copied 1 '.py' file: conanfile.py
+mypkg/0.1: Copied 2 '.am' files: Makefile.am, Makefile.am
+mypkg/0.1: Copied 1 '.ac' file: configure.ac
+mypkg/0.1: Copied 1 '.h' file: mypkg.h
+mypkg/0.1: Copied 1 '.cpp' file: mypkg.cpp
+mypkg/0.1: Exported to cache folder: /home/builder/.conan2/p/mypkg6c9752badbec7/e
+mypkg/0.1: Exported: mypkg/0.1#6e85b0c27c7fbc8eddc1994dbb543b52 (2024-09-26 07:25:38 UTC)
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=x86_64
+build_type=Debug
+compiler=clang
+compiler.version=14
+os=Windows
+[buildenv]
+CC=clang-cl
+CXX=clang-cl
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=clang
+compiler.cppstd=gnu14
+compiler.libcxx=libstdc++11
+compiler.version=14
+os=Linux
+
+
+======== Computing dependency graph ========
+Graph root
+    cli
+Requirements
+    mypkg/0.1#6e85b0c27c7fbc8eddc1994dbb543b52 - Cache
+
+======== Computing necessary packages ========
+mypkg/0.1: Forced build from source
+Requirements
+    mypkg/0.1#6e85b0c27c7fbc8eddc1994dbb543b52:c86978c6f2e57fa8155aa6d22158bfea87ef3761 - Build
+
+======== Installing packages ========
+
+-------- Installing package mypkg/0.1 (1 of 1) --------
+mypkg/0.1: Building from source
+mypkg/0.1: Package mypkg/0.1:c86978c6f2e57fa8155aa6d22158bfea87ef3761
+mypkg/0.1: Copying sources to build folder
+mypkg/0.1: Building your package in /home/builder/.conan2/p/b/mypkg08a603b274a90/b
+mypkg/0.1: Calling generate()
+mypkg/0.1: Generators folder: /home/builder/.conan2/p/b/mypkg08a603b274a90/b/build-debug/conan
+ERROR: win_bash=True but tools.microsoft.bash:subsystem configuration not defined
+
