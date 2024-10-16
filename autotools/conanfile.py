@@ -2,7 +2,7 @@
 import os
 
 from conan import ConanFile
-from conan.tools.gnu import AutotoolsToolchain, Autotools
+from conan.tools.gnu import AutotoolsToolchain, Autotools, AutotoolsDeps
 from conan.tools.layout import basic_layout
 from conan.tools.apple import fix_apple_shared_install_name
 
@@ -38,9 +38,14 @@ class mypkgConan(ConanFile):
     def layout(self):
         basic_layout(self)
 
+    def requirements(self):
+        self.requires("dependency/0.1")
+
     def generate(self):
         at_toolchain = AutotoolsToolchain(self)
         at_toolchain.generate()
+        at_deps = AutotoolsDeps(self)
+        at_deps.generate()
 
     def build(self):
         autotools = Autotools(self)

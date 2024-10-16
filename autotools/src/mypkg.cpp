@@ -1,6 +1,6 @@
 #include <iostream>
+#include "dependency.h"
 #include "mypkg.h"
-
 
 
 void mypkg(){
@@ -111,6 +111,9 @@ void mypkg(){
     #if __CYGWIN__
     std::cout << "  mypkg/0.1: __CYGWIN__" << __CYGWIN__<< "\n";
     #endif
+
+    // call to a dependency
+    dependency();
 }
 
 void mypkg_print_vector(const std::vector<std::string> &strings) {
